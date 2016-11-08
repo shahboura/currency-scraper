@@ -1,0 +1,16 @@
+{
+  "name": "se3r",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shehabelhadidy@hotmail.com",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1"
+  }
+}
