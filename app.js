@@ -1,7 +1,8 @@
 var express = require('express'),
 	mongoose = require('mongoose'),
 	phantom = require('x-ray-phantom'),
-	xray = require('x-ray');
+	xray = require('x-ray'),
+	config = require('./config');
 
 // var db = mongoose.connect('');
 var app = express();
@@ -17,6 +18,7 @@ currencyRouter.route('/currencies')
 
 app.use('/api', currencyRouter);
 
+var banks = config.banks;
 var cib = xray().driver(phantom({webSecurity: false, weak: false}));
 cib('http://www.cibeg.com/English/Pages/CIBCurrencies.aspx', 'table.currTable tr',[{
 	currency: 'td:nth-child(1)',
