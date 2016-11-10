@@ -7,7 +7,7 @@ Small currency scrapper RESTfull API built on top of node, scrapping Egyptian ba
 2. Install [Gulp](https://www.npmjs.com/package/gulp) npm package globally
     `npm install -g gulp`
 3. Install [PhantomJs](https://www.npmjs.com/package/phantomjs-prebuilt) npm package globally
-    `npm -g phantomjs-prebuilt`
+    `npm install -g phantomjs-prebuilt`
 4. Navigate to directory and run `npm install`
 5. After finish simply run `gulp`
 
