@@ -1,4 +1,6 @@
-var gulp = require('gulp'),
+'use strict'
+
+let gulp = require('gulp'),
 	nodemon = require('gulp-nodemon'),
 	config = require('./config');
 
