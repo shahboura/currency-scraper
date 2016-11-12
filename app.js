@@ -20,10 +20,11 @@ currencyRouter.route('/currencies')
 app.use('/api', currencyRouter);
 
 let banks = config.banks;
-
-bankScrapper(banks).then(currencies => {
-	console.log(currencies);
-});
+let refreshTimeout = setInterval(() => {
+	bankScrapper(banks).then(currencies => {
+		console.log(JSON.stringify(currencies));
+	});
+}, config.refreshInterval);
 
 // run server
 app.listen(port, function(){

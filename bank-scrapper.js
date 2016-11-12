@@ -3,10 +3,10 @@
 let xray = require('x-ray'),
 	phantom = require('x-ray-phantom');
 
-let bankScrapper = function(banksList){
+let bankScrapper = function(bankList){
 	let promises = [];
 	debugger;
-	banksList.forEach(function(bank){
+	bankList.forEach(function(bank){
 		let promise = new Promise((resolve, reject) => {
 			console.log('scrapping bank: ' + bank.name);
 			let bankScrap = xray().driver(phantom({webSecurity: false, weak: false}));
@@ -20,7 +20,7 @@ let bankScrapper = function(banksList){
 					reject(error);
 				}
 				else{
-					resolve(currencies);
+					resolve({name: bank.name, rates: currencies});
 				}
 			});
 		});
