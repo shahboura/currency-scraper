@@ -3,11 +3,12 @@
 let express = require('express'),
 	mongoose = require('mongoose'),
 	config = require('./config'),
-	bankScrapper = require('./bank-scrapper');
+	bankScrapper = require('./bank-scrapper'),
+	CurrencyModel = require('./models/currencyModel');
 
-// let db = mongoose.connect('');
 let app = express();
 let port = process.env.PORT || 3000;
+let db = mongoose.connect('mongodb://localhost/currencyAPI');
 
 let currencyRouter = express.Router();
 currencyRouter.route('/currencies')
