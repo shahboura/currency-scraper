@@ -3,27 +3,22 @@
 let express = require('express'),
 	mongoose = require('mongoose'),
 	config = require('./config'),
-	bankScrapper = require('./bank-scrapper'),
+	bankScrapper = require('./bank-scrapper/scrapper'),
 	CurrencyModel = require('./models/currencyModel');
 
 let app = express();
 let port = process.env.PORT || 3000;
 let db = mongoose.connect('mongodb://localhost/currencyAPI');
 
-let currencyRouter = express.Router();
-currencyRouter.route('/currencies')
-	.get(function(req, res){
-		let responseJson = {hello: "this is my api"};
-		
-		res.json(responseJson);
-	});
+let currencyRouter = require('./routes/currencyRouter')(CurrencyModel);
 
 app.use('/api', currencyRouter);
 
 let banks = config.banks;
+
 let refreshTimeout = setInterval(() => {
-	bankScrapper(banks).then(currencies => {
-		console.log(JSON.stringify(currencies));
+	bankScrapper(banks, CurrencyModel).then(results => {
+		console.log('currency rates updated.');
 	});
 }, config.refreshInterval);
 

@@ -3,9 +3,8 @@
 let xray = require('x-ray'),
 	phantom = require('x-ray-phantom');
 
-let bankScrapper = function(bankList){
+let bankScrapper = function(bankList, CurrencyModel){
 	let promises = [];
-	debugger;
 	bankList.forEach(function(bank){
 		let promise = new Promise((resolve, reject) => {
 			console.log('scrapping bank: ' + bank.name);
@@ -28,7 +27,22 @@ let bankScrapper = function(bankList){
 		promises.push(promise);
 	});
 
-	return Promise.all(promises);
+	return Promise.all(promises).then(results => {
+		var rates = results.map(scrapResult => {
+			return {
+				bank: scrapResult.name,
+				currencies: scrapResult.rates
+			};
+		});
+
+		var currency = new CurrencyModel({creationDate: new Date(), rates: rates});
+		currency.save((error, currency) => {
+			console.log('latest currency rates saved into db');
+			console.log(currency);
+		});
+
+		return results;
+	});
 };
 
 module.exports = bankScrapper;

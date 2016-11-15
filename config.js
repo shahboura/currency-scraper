@@ -1,6 +1,6 @@
 'use strict'
 
-let banks = require("./bankList");
+let banks = require("./bank-scrapper/list");
 let config = {};
 
 config.banks = banks;
