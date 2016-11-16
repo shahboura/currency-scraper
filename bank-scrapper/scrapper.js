@@ -40,10 +40,9 @@ let bankScrapper = function(bankList, CurrencyModel){
 		var currency = new CurrencyModel({creationDate: new Date(), rates: rates});
 		currency.save((error, currency) => {
 			console.log('latest currency rates saved into db');
-			console.log(currency);
 		});
 
-		return results;
+		return currency.toJSON();
 	});
 };
 

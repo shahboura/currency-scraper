@@ -19,6 +19,7 @@ let banks = config.banks;
 let refreshTimeout = setInterval(() => {
 	bankScrapper(banks, CurrencyModel).then(results => {
 		console.log('currency rates updated.');
+		console.log(results);
 	});
 }, config.refreshInterval);
 

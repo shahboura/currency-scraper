@@ -30,5 +30,13 @@
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(3)",
 		"sellSelector": "td:nth-child(2)"
+	},
+	{
+		"name": "ADIB - مصرف أبوظبي الإسلامي",
+		"url": "https://www.adib.eg/",
+		"scopeSelector": "div.CallUs > table tr:nth-child(n+3)",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(2)",
+		"sellSelector": "td:nth-child(3)"
 	}
 ]
