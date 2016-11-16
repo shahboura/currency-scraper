@@ -1,6 +1,6 @@
 [
 	{
-		"name": "CIB",
+		"name": "CIB - البنك التجاري الدولي",
 		"url": "http://www.cibeg.com/English/Pages/CIBCurrencies.aspx",
 		"scopeSelector": "table.currTable tr",
 		"currencySelector": "td:nth-child(1)",
@@ -8,11 +8,27 @@
 		"sellSelector": "td:nth-child(3)"
 	},
 	{
-		"name": "AlBaraka",
+		"name": "Al Baraka Bank - بنك البركة",
 		"url": "http://www.albaraka-bank.com.eg/%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%81%D9%8A%D8%A9/%D8%A7%D8%B3%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D8%B5%D8%B1%D9%81.aspx",
 		"scopeSelector": "div#content table:first-child tr:not(.head)",
 		"currencySelector": "td:nth-child(2)",
 		"buySelector": "td:nth-child(3)",
 		"sellSelector": "td:nth-child(4)"
+	},
+	{
+		"name": "ABK - البنك الأهلي الكويتي - مصر",
+		"url": "http://www.piraeusbank.com.eg/rates_abk.aspx",
+		"scopeSelector": "div.row.BLUE_TEXT, div.row.ORANGE_TEXT",
+		"currencySelector": "div:nth-child(1) span",
+		"buySelector": "div:nth-child(4) span",
+		"sellSelector": "div:nth-child(5) span"
+	},
+	{
+		"name": "MIDB - بنك مصر إيران للتنمية",
+		"url": "http://www.midb.com.eg/currency.aspx",
+		"scopeSelector": "table tr:not(:first-child)",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(3)",
+		"sellSelector": "td:nth-child(2)"
 	}
 ]

@@ -5,6 +5,7 @@ let xray = require('x-ray'),
 
 let bankScrapper = function(bankList, CurrencyModel){
 	let promises = [];
+	console.log(`scrapping started:: scrapping ${bankList.length} bank`);
 	bankList.forEach(function(bank){
 		let promise = new Promise((resolve, reject) => {
 			console.log('scrapping bank: ' + bank.name);
@@ -28,6 +29,7 @@ let bankScrapper = function(bankList, CurrencyModel){
 	});
 
 	return Promise.all(promises).then(results => {
+		console.log(`scrapping done:: scrapped ${results.length} bank`);
 		var rates = results.map(scrapResult => {
 			return {
 				bank: scrapResult.name,
