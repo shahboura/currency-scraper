@@ -14,10 +14,8 @@ let currencyRouter = require('./routes/currencyRouter')(CurrencyModel);
 
 app.use('/api', currencyRouter);
 
-let banks = config.banks;
-
 let refreshTimeout = setInterval(() => {
-	bankScrapper(banks, CurrencyModel).then(results => {
+	bankScrapper(config.banks, config.currencyMappings, CurrencyModel).then(results => {
 		console.log('currency rates updated.');
 		console.log(results);
 	});

@@ -3,7 +3,7 @@
 let xray = require('x-ray'),
 	phantom = require('x-ray-phantom');
 
-let bankScrapper = function(bankList, CurrencyModel){
+let bankScrapper = function(bankList, currencyMapper, CurrencyModel){
 	let promises = [];
 	console.log(`scrapping started:: scrapping ${bankList.length} bank`);
 	bankList.forEach(function(bank){
@@ -20,6 +20,13 @@ let bankScrapper = function(bankList, CurrencyModel){
 					reject(error);
 				}
 				else{
+
+					// handle different mappings of same currency
+					currencies.forEach(c => {
+						let trimmedCurrency = c.currency.trim().replace(/\r?\n|\r/g, "");
+						c.currency = currencyMapper[trimmedCurrency.toLowerCase()] || trimmedCurrency;
+					});
+
 					resolve({name: bank.name, rates: currencies});
 				}
 			});
@@ -39,7 +46,11 @@ let bankScrapper = function(bankList, CurrencyModel){
 
 		var currency = new CurrencyModel({creationDate: new Date(), rates: rates});
 		currency.save((error, currency) => {
-			console.log('latest currency rates saved into db');
+			if(error){
+				console.log(error);
+			}else{
+				console.log('latest currency rates saved into db');
+			}
 		});
 
 		return currency.toJSON();

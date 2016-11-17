@@ -1,0 +1,15 @@
+{
+	"us dollar" : "USD",
+	"sterling pound" : "GBP",
+	"australian dollar" : "AUD",
+	"euro" : "EUR",
+	"canadian dollar" : "CAD",
+	"danish krone" : "DKK",
+	"norwegian krone" : "NOK",
+	"swedish krone" : "SEK",
+	"swiss franc" : "CHF",
+	"yen" : "JPY",
+	"saudi rial" : "SAR",
+	"kuwaiti dinar" : "KWD",
+	"uae dirham" : "AED"
+}
