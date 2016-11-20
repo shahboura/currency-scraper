@@ -3,7 +3,7 @@
 let xray = require('x-ray'),
 	phantom = require('x-ray-phantom');
 
-let bankScrapper = function(bankList, currencyMapper, CurrencyModel){
+let bankScraper = function(bankList, currencyMapper, CurrencyModel){
 	let promises = [];
 	console.log(`scrapping started:: scrapping ${bankList.length} bank`);
 	bankList.forEach(function(bank){
@@ -57,4 +57,4 @@ let bankScrapper = function(bankList, currencyMapper, CurrencyModel){
 	});
 };
 
-module.exports = bankScrapper;
+module.exports = bankScraper;

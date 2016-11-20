@@ -1,7 +1,7 @@
 'use strict'
 
-let banks = require("./bank-scrapper/list");
-let currencyMappings = require('./bank-scrapper/currency-mappings');
+let banks = require("./bank-scraper/list");
+let currencyMappings = require('./bank-scraper/currency-mappings');
 let config = {};
 
 config.banks = banks;
