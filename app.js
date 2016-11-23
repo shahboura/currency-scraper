@@ -19,9 +19,7 @@ app.listen(port, function(){
 	console.log('Running on PORT: ' + port);
 });
 
-let refreshTimeout = setInterval(() => {
-	bankScraper(config.banks, config.currencyMappings, CurrencyModel).then(results => {
-		console.log('currency rates updated.');
-		console.log(results);
-	});
-}, config.refreshInterval);
+bankScraper(config, CurrencyModel).then(results => {
+	console.log('currency rates updated.');
+	console.log(results);
+});

@@ -3,8 +3,10 @@
 let xray = require('x-ray'),
 	phantom = require('x-ray-phantom');
 
-let bankScraper = function(bankList, currencyMapper, CurrencyModel){
+let bankScraper = function(config, CurrencyModel){
 	let promises = [];
+	let bankList = config.banks;
+	let currencyMapper = config.currencyMappings;
 	console.log(`scrapping started:: scrapping ${bankList.length} bank`);
 	bankList.forEach(function(bank){
 		let promise = new Promise((resolve, reject) => {
@@ -52,7 +54,9 @@ let bankScraper = function(bankList, currencyMapper, CurrencyModel){
 				console.log('latest currency rates saved into db');
 			}
 		});
-
+		
+		// Sets a new interval
+		setTimeout(bankScraper, config.refreshInterval, config, CurrencyModel);
 		return currency.toJSON();
 	});
 };
