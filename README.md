@@ -1,17 +1,22 @@
 # currency-scrapper
 Small currency scrapper RESTfull API built on top of node, scrapping Egyptian banks to obtain current currency rates.
 
-#To install
+# System Requirements
+1. Running instance of [monogoDb](https://www.mongodb.com/)
+2. Node v4.3.2 or higher
 
-1. Grab and install [monogoDb](https://www.mongodb.com/)
-2. Make sure db isntance is running using `mongod` command
-3. [Clone](https://github.com/shahboura/currency-scrapper.git) repository locally
-4. Install [Gulp](https://www.npmjs.com/package/gulp) npm package globally
+# To install
+
+1. [Clone](https://github.com/shahboura/currency-scrapper.git) repository locally
+2. Install [Gulp](https://www.npmjs.com/package/gulp) npm package globally
     `npm install -g gulp`
-5. Install [PhantomJs](https://www.npmjs.com/package/phantomjs-prebuilt) npm package globally
+3. Install [PhantomJs](https://www.npmjs.com/package/phantomjs-prebuilt) npm package globally
     `npm install -g phantomjs-prebuilt`
-6. Navigate to directory and run `npm install`
-7. After finish simply run `gulp`
+4. Navigate to directory and run `npm install`
 
-#To debug with default node built-in inspector
+# To Run
+1. From directory run `gulp`
+2. From browser: http://localhost:8000/api/currencies
+
+# To debug with default node built-in inspector
     node --inspect --debug-brk app.js
