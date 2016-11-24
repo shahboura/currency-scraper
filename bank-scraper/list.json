@@ -70,5 +70,13 @@
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(2)",
 		"sellSelector": "td:nth-child(3)"
+	},
+	{
+		"name": "Banque Misr - بنك مصر",
+		"url": "http://www.banquemisr.com/en/exchangerates",
+		"scopeSelector": "table.exchangeRates tr:nth-child(n+3):nth-last-child(n+2)",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(2)",
+		"sellSelector": "td:nth-child(3)"
 	}
 ]
