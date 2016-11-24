@@ -39,10 +39,11 @@ let bankScraper = function(config, CurrencyModel){
 
 	return Promise.all(promises).then(results => {
 		console.log(`scrapping done:: scrapped ${results.length} bank`);
+		// Map and order rates by bank, filter zeroed currency rates
 		var rates = results.map(scrapResult => {
 			return {
 				bank: scrapResult.name,
-				currencies: scrapResult.rates
+				currencies: scrapResult.rates.filter(r => r.buy != 0 && r.sell != 0)
 			};
 		});
 
@@ -54,7 +55,7 @@ let bankScraper = function(config, CurrencyModel){
 				console.log('latest currency rates saved into db');
 			}
 		});
-		
+
 		// Sets a new interval
 		setTimeout(bankScraper, config.refreshInterval, config, CurrencyModel);
 		return currency.toJSON();

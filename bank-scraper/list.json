@@ -56,6 +56,14 @@
 		"sellSelector": "td:nth-child(4)"
 	},
 	{
+		"name": "AlexBank - بنك الإسكندرية",
+		"url": "https://www.alexbank.com/En/Home/ExchangeRates",
+		"scopeSelector": "table.exchangerate-table tr:nth-child(n+2)",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(4)",
+		"sellSelector": "td:nth-child(5)"
+	},
+	{
 		"name": "SAIB - بنك الشركة المصرفية العربية الدولية",
 		"url": "http://www.saib.com.eg/foreign-currencies/",
 		"scopeSelector": "div.about table tr:nth-child(n+2):nth-last-child(n+2)",
