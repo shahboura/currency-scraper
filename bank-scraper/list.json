@@ -78,5 +78,13 @@
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(2)",
 		"sellSelector": "td:nth-child(3)"
+	},
+	{
+		"name": "Crédit Agricole - كريدي أجريكول",
+		"url": "https://www.ca-egypt.com/en/digital-services",
+		"scopeSelector": "#f_box option",
+		"currencySelector": "@value",
+		"buySelector": "@data-buy",
+		"sellSelector": "@data-sell"
 	}
 ]
