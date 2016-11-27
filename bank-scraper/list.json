@@ -86,5 +86,21 @@
 		"currencySelector": "@value",
 		"buySelector": "@data-buy",
 		"sellSelector": "@data-sell"
+	},
+	{
+		"name": "NBG Bank - البنك الأهلي اليوناني | مصر",
+		"url": "http://www.nbg.com.eg/en/exchange-rates",
+		"scopeSelector": "#exchange tbody tr.all_hover",
+		"currencySelector": "td:nth-child(2)",
+		"buySelector": "td:nth-child(3)",
+		"sellSelector": "td:nth-child(4)"
+	},
+	{
+		"name": "Banque Du Caire - بنك القاهرة",
+		"url": "http://www.banqueducaire.com/English/MarketUpdates/Pages/CurrencyExchange.aspx",
+		"scopeSelector": "table.curTbl tr:nth-child(n+3)",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(2)",
+		"sellSelector": "td:nth-child(3)"
 	}
 ]

@@ -21,11 +21,15 @@
 	"yen" : "JPY",
 	"saudi rial" : "SAR",
 	"saudi riyal" : "SAR",
+	"saudi arabian riyal" : "SAR",
 	"kuwaiti dinar" : "KWD",
 	"kuwait dinar" : "KWD",
 	"uae dirham" : "AED",
+	"arab emirates dirham" : "AED",
 	"jordanian dinar" : "JOD",
 	"bahrain dinar" : "BHD",
 	"qatari rial" : "QAR",
-	"oman riyal" : "OMR"
+	"qatar rial" : "QAR",
+	"oman riyal" : "OMR",
+	"omani rial" : "OMR"
 }
