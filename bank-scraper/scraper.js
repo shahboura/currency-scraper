@@ -22,14 +22,27 @@ let bankScraper = function(config, CurrencyModel){
 					reject(error);
 				}
 				else{
+					for (let i = currencies.length - 1; i >= 0; i--) {
+						var c = currencies[i];
 
-					// handle different mappings of same currency
-					currencies.forEach(c => {
+						// remove zeroed, empty elements
+						if(!c.buy || c.buy == 0 || !c.sell || c.sell == 0){
+							currencies.splice(i, 1);
+							continue;
+						}
+
+						// support regex value extraction
+						if(bank.currencyRegex) {
+							let match = c.currency.match(new RegExp(bank.currencyRegex));
+							c.currency = match.shift() || c.currency;
+						}
+
+						// handle different  mappings of same currency
 						let trimmedCurrency = c.currency.trim().replace(/\r?\n|\r/g, "");
 						c.currency = currencyMapper[trimmedCurrency.toLowerCase()] || trimmedCurrency;
-					});
+					}
 
-					resolve({name: bank.name, rates: currencies});
+					resolve({bank: bank.name, currencies: currencies});
 				}
 			});
 		});
@@ -39,15 +52,8 @@ let bankScraper = function(config, CurrencyModel){
 
 	return Promise.all(promises).then(results => {
 		console.log(`scrapping done:: scrapped ${results.length} bank`);
-		// Map and order rates by bank, filter zeroed currency rates
-		var rates = results.map(scrapResult => {
-			return {
-				bank: scrapResult.name,
-				currencies: scrapResult.rates.filter(r => r.buy != 0 && r.sell != 0)
-			};
-		});
 
-		var currency = new CurrencyModel({creationDate: new Date(), rates: rates});
+		var currency = new CurrencyModel({creationDate: new Date(), rates: results});
 		currency.save((error, currency) => {
 			if(error){
 				console.log(error);

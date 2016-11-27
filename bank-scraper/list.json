@@ -102,5 +102,14 @@
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(2)",
 		"sellSelector": "td:nth-child(3)"
+	},
+	{
+		"name": "Blom Bank - بنك بلوم",
+		"url": "http://www.blombankegypt.com/BlomEgypt/Exchange-rates",
+		"scopeSelector": "div.tableHolder table tr:nth-child(n+3)",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(5)",
+		"sellSelector": "td:nth-child(6)",
+		"currencyRegex": "([^\\s]+)"
 	}
 ]
