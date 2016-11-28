@@ -8,6 +8,9 @@ let express = require('express'),
 
 let app = express();
 let port = process.env.PORT || 3000;
+
+// use native promises instead of mongoose deprecated
+mongoose.Promise = global.Promise;
 let db = mongoose.connect('mongodb://localhost/currencyAPI');
 
 let currencyRouter = require('./routes/currencyRouter')(CurrencyModel);
