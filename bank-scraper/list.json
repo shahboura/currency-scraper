@@ -110,6 +110,6 @@
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(5)",
 		"sellSelector": "td:nth-child(6)",
-		"currencyRegex": "([^\\s]+)"
+		"currencyRegex": "[A-Z]+"
 	}
 ]
