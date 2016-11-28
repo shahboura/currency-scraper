@@ -13,7 +13,8 @@
 		"scopeSelector": "div#content table:first-child tr:not(.head)",
 		"currencySelector": "td:nth-child(2)",
 		"buySelector": "td:nth-child(3)",
-		"sellSelector": "td:nth-child(4)"
+		"sellSelector": "td:nth-child(4)",
+		"multiplier": "0.01"
 	},
 	{
 		"name": "ABK - البنك الأهلي الكويتي - مصر",
@@ -69,7 +70,8 @@
 		"scopeSelector": "div.about table tr:nth-child(n+2):nth-last-child(n+2)",
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(2)",
-		"sellSelector": "td:nth-child(3)"
+		"sellSelector": "td:nth-child(3)",
+		"multiplier": "0.01"
 	},
 	{
 		"name": "Banque Misr - بنك مصر",

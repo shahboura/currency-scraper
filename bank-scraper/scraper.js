@@ -40,6 +40,11 @@ let bankScraper = function(config, CurrencyModel){
 						// handle different  mappings of same currency
 						let trimmedCurrency = c.currency.trim().replace(/\r?\n|\r/g, "");
 						c.currency = currencyMapper[trimmedCurrency.toLowerCase()] || trimmedCurrency;
+
+						// handle different multipliers / decimal points
+						let multiplier = bank.multiplier || 1;
+						c.buy = Math.round(c.buy * multiplier * 10000) / 10000;
+						c.sell = Math.round(c.sell * multiplier * 10000) / 10000;
 					}
 
 					resolve({bank: bank.name, currencies: currencies});
