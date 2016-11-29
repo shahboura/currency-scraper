@@ -113,13 +113,5 @@
 		"buySelector": "td:nth-child(5)",
 		"sellSelector": "td:nth-child(6)",
 		"currencyRegex": "[A-Z]+"
-	},
-	{
-		"name": "Central Bank of Egypt - البنك المركزي المصري",
-		"url": "http://www.cbe.org.eg/ar/EconomicResearch/Statistics/Pages/ExchangeRatesListing.aspx",
-		"scopeSelector": "table.table tbody tr",
-		"currencySelector": "td:nth-child(1)",
-		"buySelector": "td:nth-child(2)",
-		"sellSelector": "td:nth-child(3)"
 	}
 ]
