@@ -18,7 +18,7 @@
 	},
 	{
 		"name": "ABK - البنك الأهلي الكويتي - مصر",
-		"url": "http://www.piraeusbank.com.eg/rates_abk.aspx",
+		"url": "http://www.abkegypt.com/rates_abk.aspx",
 		"scopeSelector": "div.row.BLUE_TEXT, div.row.ORANGE_TEXT",
 		"currencySelector": "div:nth-child(1) span",
 		"buySelector": "div:nth-child(4) span",
@@ -113,5 +113,13 @@
 		"buySelector": "td:nth-child(5)",
 		"sellSelector": "td:nth-child(6)",
 		"currencyRegex": "[A-Z]+"
+	},
+	{
+		"name": "HDB-egy - بنك التعمير و الاسكان",
+		"url": "http://www.hdb-egy.com/main.php?page=exhange",
+		"scopeSelector": "table table.Currency-Table tr",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(3)",
+		"sellSelector": "td:nth-child(5)"
 	}
 ]
