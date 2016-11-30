@@ -2,8 +2,9 @@
 Small currency scrapper RESTfull API built on top of node, scrapping Egyptian banks to obtain current currency rates.
 
 # System Requirements
-1. Running instance of [monogoDb](https://www.mongodb.com/)
-2. Node v4.3.2 or higher
+1. Node v4.3.2 or higher installed
+2. [monogoDb](https://www.mongodb.com/) installed
+3. make sure [`mongod` service](https://docs.mongodb.com/v3.2/tutorial/manage-mongodb-processes/#start-mongod-processes) started
 
 # To install
 
