@@ -121,5 +121,13 @@
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(3)",
 		"sellSelector": "td:nth-child(5)"
+	},
+	{
+		"name": "AAIB - البنك العربي الافريقي الدولي",
+		"url": "http://aaib.com/en/rates",
+		"scopeSelector": "#rates-table tr",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(2)",
+		"sellSelector": "td:nth-child(3)"
 	}
 ]
