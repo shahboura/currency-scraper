@@ -1,18 +1,19 @@
 'use strict'
 
-let xray = require('x-ray'),
-	phantom = require('x-ray-phantom');
+let Xray = require('x-ray'),
+	Phantom = require('x-ray-phantom');
 
 let bankScraper = function(config, CurrencyModel){
 	let promises = [];
 	let bankList = config.banks;
 	let currencyMapper = config.currencyMappings;
 	console.log(`scrapping started:: scrapping ${bankList.length} bank`);
+
 	bankList.forEach(function(bank){
 		let promise = new Promise((resolve, reject) => {
 			console.log('scrapping bank: ' + bank.name);
-			let bankScrap = xray().driver(phantom({webSecurity: false, weak: false}));
-
+			let bankScrap = Xray().driver(Phantom({webSecurity: false, weak: false}));
+			
 			bankScrap(bank.url, bank.scopeSelector, [{
 				currency: bank.currencySelector,
 				buy: bank.buySelector,
@@ -26,7 +27,7 @@ let bankScraper = function(config, CurrencyModel){
 						var c = currencies[i];
 
 						// remove zeroed, empty elements
-						if(!c.buy || c.buy == 0 || !c.sell || c.sell == 0){
+						if(isNaN(c.buy) || !c.buy || c.buy == 0 || isNaN(c.sell) || !c.sell || c.sell == 0){
 							currencies.splice(i, 1);
 							continue;
 						}

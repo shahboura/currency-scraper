@@ -129,5 +129,21 @@
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(2)",
 		"sellSelector": "td:nth-child(3)"
+	},
+	{
+		"name": "Faisal Bank - بنك فيصل",
+		"url": "http://www.faisalbank.com.eg/FIB/arabic/rate.html",
+		"scopeSelector": "table.Action-Table tr.even",
+		"currencySelector": "td:nth-child(2)",
+		"buySelector": "td:nth-child(3)",
+		"sellSelector": "td:nth-child(4)"
+	},
+	{
+		"name": "EGBANK - البنك المصري الخليجي",
+		"url": "https://eg-bank.com/ExchangeRates/ExchangeRates/",
+		"scopeSelector": "div.col-xs-12 div.row-wrapper:nth-child(n+2)",
+		"currencySelector": "div:nth-child(1)",
+		"buySelector": "div:nth-child(2)",
+		"sellSelector": "div:nth-child(3)"
 	}
 ]
