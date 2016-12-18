@@ -6,12 +6,9 @@ numCPUs = require('os').cpus().length;
 let express = require('express'),
 mongoose = require('mongoose'),
 config = require('./config'),
+cache = require('memory-cache'),
 bankScraper = require('./bank-scraper/scraper'),
 CurrencyModel = require('./models/currencyModel');
-
-// use native promises instead of mongoose deprecated
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/currencyAPI');
 
 if(cluster.isMaster){
 	cluster.on('online', (worker) => {
@@ -28,16 +25,30 @@ if(cluster.isMaster){
 		cluster.fork();
 	});
 
+	// use native promises instead of mongoose deprecated
+	// mongoose.Promise = global.Promise;
+	// mongoose.connect('mongodb://localhost/currencyAPI');
+
 	// Run only once, no need to scrap in parallel clusters
-	bankScraper(config, CurrencyModel).then(results => {
+	bankScraper(config).then(results => {
 		console.log('currency rates updated.');
-		console.log(results);
 	});
 } else {
+	// update cache per worker whenever master fetches new currency rates
+	process.on('message', (msg) => {
+		console.log('Updating worker with currency results from master...');
+		if(msg.byCurrency && msg.byBank){
+			cache.put('by-currency', msg.byCurrency);
+			cache.put('by-bank', msg.byBank);
+		} else{
+			console.log(`Error updating worker, msg: ${msg}`);
+		}
+	});
+
 	let app = express();
 	let port = process.env.PORT || 3000;
 
-	let currencyRouter = require('./routes/currencyRouter')(CurrencyModel);
+	let currencyRouter = require('./routes/currencyRouter')();
 	app.use('/api', currencyRouter);
 
 	// run server

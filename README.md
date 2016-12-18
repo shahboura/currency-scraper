@@ -17,7 +17,9 @@ Small currency scrapper RESTfull API built on top of node, scrapping Egyptian ba
 # To Run
 1. make sure [`mongod` service](https://docs.mongodb.com/v3.2/tutorial/manage-mongodb-processes/#start-mongod-processes) started
 2. From directory run `gulp`
-3. From browser: http://localhost:8000/api/currencies
+3. All rates ordered by banks: http://localhost:8000/api/banks
+4. All rates ordered by currencies: http://localhost:8000/api/currencies
+5. All rates for specific currency: http://localhost:8000/api/currencies/USD
 
 # To debug with default node built-in inspector
     node --inspect --debug-brk app.js

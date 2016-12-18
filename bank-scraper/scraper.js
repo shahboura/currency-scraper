@@ -1,7 +1,8 @@
 'use strict'
-
+const cluster = require('cluster');
 let Xray = require('x-ray'),
-	Phantom = require('x-ray-phantom');
+Phantom = require('x-ray-phantom'),
+cache = require('memory-cache');
 
 let bankScraper = function(config, CurrencyModel){
 	let promises = [];
@@ -59,18 +60,38 @@ let bankScraper = function(config, CurrencyModel){
 	return Promise.all(promises).then(results => {
 		console.log(`scrapping done:: scrapped ${results.length} bank`);
 
-		var currency = new CurrencyModel({creationDate: new Date(), rates: results});
-		currency.save((error, currency) => {
-			if(error){
-				console.log(error);
-			}else{
-				console.log('latest currency rates saved into db');
-			}
+		let creationDate = new Date();
+		let byCurrency = {creationDate: creationDate};
+		let byBank = {creationDate: creationDate, rates: results};
+
+		results.forEach(r => {
+			r.currencies.forEach(c => {
+				byCurrency[c.currency] = byCurrency[c.currency] || [];
+				byCurrency[c.currency].push({bank: r.bank, buy: c.buy, sell: c.sell});
+			});
 		});
+
+		cache.put('by-currency', byCurrency);
+		cache.put('by-bank', byBank);
+
+		// Sends out the result to all workers
+		console.log('updating workers with latest results...');
+		Object.keys(cluster.workers).forEach((id) => {
+			cluster.workers[id].send({byCurrency: byCurrency, byBank: byBank});
+		});
+
+		// TODO: check mongoose connectivity;
+		// currency.save((error, currency) => {
+		// 	if(error){
+		// 		console.log(error);
+		// 	}else{
+		// 		console.log('latest currency rates saved into db');
+		// 	}
+		// });
 
 		// Sets a new interval
 		setTimeout(bankScraper, config.refreshInterval, config, CurrencyModel);
-		return currency.toJSON();
+		return byCurrency;
 	});
 };
 
