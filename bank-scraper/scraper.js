@@ -49,7 +49,7 @@ let bankScraper = function(config, CurrencyModel){
 						c.sell = Math.round(c.sell * multiplier * 10000) / 10000;
 					}
 
-					resolve({bank: bank.name, currencies: currencies});
+					resolve({code: bank.code, name: bank.name, currencies: currencies});
 				}
 			});
 		});
@@ -62,12 +62,13 @@ let bankScraper = function(config, CurrencyModel){
 
 		let creationDate = new Date();
 		let byCurrency = {creationDate: creationDate};
-		let byBank = {creationDate: creationDate, rates: results};
+		let byBank = {creationDate: creationDate};
 
 		results.forEach(r => {
+			byBank[r.code.toUpperCase()] = r;
 			r.currencies.forEach(c => {
 				byCurrency[c.currency] = byCurrency[c.currency] || [];
-				byCurrency[c.currency].push({bank: r.bank, buy: c.buy, sell: c.sell});
+				byCurrency[c.currency].push({bank: r.name, buy: c.buy, sell: c.sell});
 			});
 		});
 

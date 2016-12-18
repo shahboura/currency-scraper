@@ -23,6 +23,13 @@ let routes = function(){
 		res.jsonp(cache.get('by-bank') || {});
 	});
 
+	currencyRouter.route('/banks/:bankCode')
+	.get(function (req, res) {
+		let bankCode = req.params.bankCode.toUpperCase();
+		let banks = cache.get('by-bank') || {};
+		res.jsonp(banks[bankCode] || {});
+	});
+
 	return currencyRouter;
 };
 

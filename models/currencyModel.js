@@ -6,7 +6,7 @@ let currencyModel = new Schema({
 		type: Date
 	},
 	rates:[{
-		bank: {
+		name: {
 			type: String
 		},
 		currencies: [{

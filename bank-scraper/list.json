@@ -1,5 +1,6 @@
 [
 	{
+		"code": "CIB",
 		"name": "CIB - البنك التجاري الدولي",
 		"url": "http://www.cibeg.com/English/Pages/CIBCurrencies.aspx",
 		"scopeSelector": "table.currTable tr",
@@ -8,6 +9,7 @@
 		"sellSelector": "td:nth-child(3)"
 	},
 	{
+		"code": "Al-Baraka-Bank",
 		"name": "Al Baraka Bank - بنك البركة",
 		"url": "http://www.albaraka-bank.com.eg/%D8%A7%D9%84%D8%AE%D8%AF%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%81%D9%8A%D8%A9/%D8%A7%D8%B3%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D8%B5%D8%B1%D9%81.aspx",
 		"scopeSelector": "div#content table:first-child tr:not(.head)",
@@ -17,6 +19,7 @@
 		"multiplier": "0.01"
 	},
 	{
+		"code": "ABK",
 		"name": "ABK - البنك الأهلي الكويتي - مصر",
 		"url": "http://www.abkegypt.com/rates_abk.aspx",
 		"scopeSelector": "div.row.BLUE_TEXT, div.row.ORANGE_TEXT",
@@ -25,6 +28,7 @@
 		"sellSelector": "div:nth-child(5) span"
 	},
 	{
+		"code": "MIDB",
 		"name": "MIDB - بنك مصر إيران للتنمية",
 		"url": "http://www.midb.com.eg/currency.aspx",
 		"scopeSelector": "table tr:not(:first-child)",
@@ -33,6 +37,7 @@
 		"sellSelector": "td:nth-child(2)"
 	},
 	{
+		"code": "ADIB",
 		"name": "ADIB - مصرف أبوظبي الإسلامي",
 		"url": "https://www.adib.eg/",
 		"scopeSelector": "div.CallUs > table tr:nth-child(n+3)",
@@ -41,6 +46,7 @@
 		"sellSelector": "td:nth-child(3)"
 	},
 	{
+		"code": "Suez-Canal-Bank",
 		"name": "Suez Canal Bank - بنك قناة السويس",
 		"url": "http://scbank.com.eg/CurrencyAll.aspx",
 		"scopeSelector": "td [background='images/inside-t_bg.gif'] table tr:nth-child(n+3)",
@@ -49,6 +55,7 @@
 		"sellSelector": "td:nth-child(6)"
 	},
 	{
+		"code": "NBE",
 		"name": "NBE - البنك الأهلي المصري",
 		"url": "http://www.nbe.com.eg/en/ExchangeRate.aspx",
 		"scopeSelector": "#idts_content table tr:nth-child(n+2)",
@@ -57,6 +64,7 @@
 		"sellSelector": "td:nth-child(4)"
 	},
 	{
+		"code": "Alex-Bank",
 		"name": "AlexBank - بنك الإسكندرية",
 		"url": "https://www.alexbank.com/En/Home/ExchangeRates",
 		"scopeSelector": "table.exchangerate-table tr:nth-child(n+2)",
@@ -65,6 +73,7 @@
 		"sellSelector": "td:nth-child(5)"
 	},
 	{
+		"code": "SAIB",
 		"name": "SAIB - بنك الشركة المصرفية العربية الدولية",
 		"url": "http://www.saib.com.eg/foreign-currencies/",
 		"scopeSelector": "div.about table tr:nth-child(n+2):nth-last-child(n+2)",
@@ -74,6 +83,7 @@
 		"multiplier": "0.01"
 	},
 	{
+		"code": "Banque-Misr",
 		"name": "Banque Misr - بنك مصر",
 		"url": "http://www.banquemisr.com/en/exchangerates",
 		"scopeSelector": "table.exchangeRates tr:nth-child(n+3):nth-last-child(n+2)",
@@ -82,6 +92,7 @@
 		"sellSelector": "td:nth-child(3)"
 	},
 	{
+		"code": "CA-Egypt",
 		"name": "Crédit Agricole - كريدي أجريكول",
 		"url": "https://www.ca-egypt.com/en/digital-services",
 		"scopeSelector": "#f_box option",
@@ -90,6 +101,7 @@
 		"sellSelector": "@data-sell"
 	},
 	{
+		"code": "NBG",
 		"name": "NBG Bank - البنك الأهلي اليوناني | مصر",
 		"url": "http://www.nbg.com.eg/en/exchange-rates",
 		"scopeSelector": "#exchange tbody tr.all_hover",
@@ -98,6 +110,7 @@
 		"sellSelector": "td:nth-child(4)"
 	},
 	{
+		"code": "Banque-Du-Caire",
 		"name": "Banque Du Caire - بنك القاهرة",
 		"url": "http://www.banqueducaire.com/English/MarketUpdates/Pages/CurrencyExchange.aspx",
 		"scopeSelector": "table.curTbl tr:nth-child(n+3)",
@@ -106,6 +119,7 @@
 		"sellSelector": "td:nth-child(3)"
 	},
 	{
+		"code": "Blom-Bank",
 		"name": "Blom Bank - بنك بلوم",
 		"url": "http://www.blombankegypt.com/BlomEgypt/Exchange-rates",
 		"scopeSelector": "div.tableHolder table tr:nth-child(n+3)",
@@ -115,6 +129,7 @@
 		"currencyRegex": "[A-Z]+"
 	},
 	{
+		"code": "HDB-egy",
 		"name": "HDB-egy - بنك التعمير و الاسكان",
 		"url": "http://www.hdb-egy.com/main.php?page=exhange",
 		"scopeSelector": "table table.Currency-Table tr",
@@ -123,6 +138,7 @@
 		"sellSelector": "td:nth-child(5)"
 	},
 	{
+		"code": "AAIB",
 		"name": "AAIB - البنك العربي الافريقي الدولي",
 		"url": "http://aaib.com/en/rates",
 		"scopeSelector": "#rates-table tr",
@@ -131,6 +147,7 @@
 		"sellSelector": "td:nth-child(3)"
 	},
 	{
+		"code": "Faisal-Bank",
 		"name": "Faisal Bank - بنك فيصل",
 		"url": "http://www.faisalbank.com.eg/FIB/arabic/rate.html",
 		"scopeSelector": "table.Action-Table tr.even",
@@ -139,6 +156,7 @@
 		"sellSelector": "td:nth-child(4)"
 	},
 	{
+		"code": "EGBANK",
 		"name": "EGBANK - البنك المصري الخليجي",
 		"url": "https://eg-bank.com/ExchangeRates/ExchangeRates/",
 		"scopeSelector": "div.col-xs-12 div.row-wrapper:nth-child(n+2)",

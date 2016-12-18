@@ -16,8 +16,9 @@ Small currency scrapper RESTfull API built on top of node, scrapping Egyptian ba
 # To Run
 1. From directory run `gulp`
 2. All rates ordered by banks: http://localhost:8000/api/banks
-3. All rates ordered by currencies: http://localhost:8000/api/currencies
-4. All rates for specific currency: http://localhost:8000/api/currencies/USD
+3. All rates for specific bank: http://localhost:8000/api/banks/BANQUE-DU-CAIRE
+4. All rates ordered by currencies: http://localhost:8000/api/currencies
+5. All rates for specific currency: http://localhost:8000/api/currencies/USD
 
 # To debug with default node built-in inspector
     node --inspect --debug-brk app.js
