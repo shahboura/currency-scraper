@@ -13,7 +13,6 @@
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
     "memory-cache": "^0.1.6",
-    "mongoose": "^4.6.6",
     "x-ray": "^2.3.1",
     "x-ray-phantom": "^1.0.1"
   }

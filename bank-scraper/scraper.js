@@ -88,15 +88,6 @@ let bankScraper = function(config, CurrencyModel){
 			cluster.workers[id].send({byCurrency: byCurrency, byBank: byBank});
 		});
 
-		// TODO: check mongoose connectivity;
-		// currency.save((error, currency) => {
-		// 	if(error){
-		// 		console.log(error);
-		// 	}else{
-		// 		console.log('latest currency rates saved into db');
-		// 	}
-		// });
-
 		// Sets a new interval
 		setTimeout(bankScraper, config.refreshInterval, config, CurrencyModel);
 		return byCurrency;

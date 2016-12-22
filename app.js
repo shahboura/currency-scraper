@@ -4,11 +4,9 @@ const cluster = require('cluster'),
 numCPUs = require('os').cpus().length;
 
 let express = require('express'),
-mongoose = require('mongoose'),
 config = require('./config'),
 cache = require('memory-cache'),
-bankScraper = require('./bank-scraper/scraper'),
-CurrencyModel = require('./models/currencyModel');
+bankScraper = require('./bank-scraper/scraper');
 
 if(cluster.isMaster){
 	cluster.on('online', (worker) => {
@@ -24,10 +22,6 @@ if(cluster.isMaster){
 		console.log(`worker ${worker.process.pid} died with signal/code ${signal || code}, forking...`);
 		cluster.fork();
 	});
-
-	// use native promises instead of mongoose deprecated
-	// mongoose.Promise = global.Promise;
-	// mongoose.connect('mongodb://localhost/currencyAPI');
 
 	// Run only once, no need to scrap in parallel clusters
 	bankScraper(config).then(results => {
