@@ -1,8 +1,7 @@
 'use strict'
 const cluster = require('cluster');
 let Xray = require('x-ray'),
-Phantom = require('x-ray-phantom'),
-cache = require('memory-cache');
+Phantom = require('x-ray-phantom');
 
 let bankScraper = function(config, CurrencyModel){
 	let promises = [];
@@ -13,7 +12,9 @@ let bankScraper = function(config, CurrencyModel){
 	bankList.forEach(function(bank){
 		let promise = new Promise((resolve, reject) => {
 			console.log('scrapping bank: ' + bank.name);
-			let bankScrap = Xray().driver(Phantom({webSecurity: false, weak: false}));
+			let bankScrap = Xray()
+								.driver(Phantom({webSecurity: false, weak: false}))
+								.timeout(config.timeout);
 			
 			bankScrap(bank.url, bank.scopeSelector, [{
 				currency: bank.currencySelector,
@@ -52,19 +53,26 @@ let bankScraper = function(config, CurrencyModel){
 					resolve({code: bank.code, name: bank.name, currencies: currencies});
 				}
 			});
+		}).catch(error => {
+			console.error(`error scrapping bank: ${bank.name}\nmsg: ${error}`);
 		});
 
 		promises.push(promise);
 	});
 
 	return Promise.all(promises).then(results => {
-		console.log(`scrapping done:: scrapped ${results.length} bank`);
-
 		let creationDate = new Date();
 		let byCurrency = {creationDate: creationDate};
 		let byBank = {creationDate: creationDate};
+		let failedAttempts = 0;
 
 		results.forEach(r => {
+			// broken link, already reported in catch, go on without it.
+			if(r === undefined){
+				failedAttempts++;
+				return;
+			}
+
 			byBank[r.code.toUpperCase()] = r;
 			r.currencies.forEach(c => {
 				byCurrency[c.currency] = byCurrency[c.currency] || [];
@@ -72,8 +80,7 @@ let bankScraper = function(config, CurrencyModel){
 			});
 		});
 
-		cache.put('by-currency', byCurrency);
-		cache.put('by-bank', byBank);
+		console.log(`scrapping done:: scrapped ${results.length - failedAttempts} bank`);
 
 		// Sends out the result to all workers
 		console.log('updating workers with latest results...');

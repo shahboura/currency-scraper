@@ -8,5 +8,6 @@ config.banks = banks;
 config.currencyMappings = currencyMappings;
 config.port = process.env.PORT || 8000;
 config.refreshInterval = 900000;
+config.timeout = 90000;
 
 module.exports = config;
