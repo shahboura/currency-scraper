@@ -14,8 +14,8 @@ let routes = function(){
 	currencyRouter.route('/currencies/:currencySymbol')
 	.get(function (req, res) {
 		let currencySymbol = req.params.currencySymbol.toUpperCase();
-		let currencies = cache.get('by-currency') || {};
-		res.jsonp(currencies[currencySymbol] || {});
+		let currenciesStore = cache.get('by-currency') || {};
+		res.jsonp(currenciesStore.currencies[currencySymbol] || {});
 	});
 
 	currencyRouter.route('/banks')
@@ -26,8 +26,8 @@ let routes = function(){
 	currencyRouter.route('/banks/:bankCode')
 	.get(function (req, res) {
 		let bankCode = req.params.bankCode.toUpperCase();
-		let banks = cache.get('by-bank') || {};
-		res.jsonp(banks[bankCode] || {});
+		let banksStore = cache.get('by-bank') || {};
+		res.jsonp(banksStore.banks[bankCode] || {});
 	});
 
 	return currencyRouter;

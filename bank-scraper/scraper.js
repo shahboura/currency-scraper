@@ -62,8 +62,8 @@ let bankScraper = function(config, CurrencyModel){
 
 	return Promise.all(promises).then(results => {
 		let creationDate = new Date();
-		let byCurrency = {creationDate: creationDate};
-		let byBank = {creationDate: creationDate};
+		let byCurrency = {creationDate: creationDate, currencies: {}};
+		let byBank = {creationDate: creationDate, banks: {}};
 		let failedAttempts = 0;
 
 		results.forEach(r => {
@@ -73,10 +73,10 @@ let bankScraper = function(config, CurrencyModel){
 				return;
 			}
 
-			byBank[r.code.toUpperCase()] = r;
+			byBank.banks[r.code.toUpperCase()] = r;
 			r.currencies.forEach(c => {
-				byCurrency[c.currency] = byCurrency[c.currency] || [];
-				byCurrency[c.currency].push({bank: r.name, buy: c.buy, sell: c.sell});
+				byCurrency.currencies[c.currency] = byCurrency.currencies[c.currency] || [];
+				byCurrency.currencies[c.currency].push({bank: r.name, buy: c.buy, sell: c.sell});
 			});
 		});
 
