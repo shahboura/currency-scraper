@@ -167,8 +167,8 @@
 	{
 		"code": "UBEG",
 		"name": "TheUBEG - المصرف المتحد",
-		"url": "http://www.theubeg.com/%20exchange%20rates",
-		"scopeSelector": "#fxRateDiv table.rates tr:nth-child(n+2)",
+		"url": "http://www.theubeg.com/fxRate",
+		"scopeSelector": "table.rates tr:nth-child(n+2)",
 		"currencySelector": "td:nth-child(2)",
 		"buySelector": "td:nth-child(3)",
 		"sellSelector": "td:nth-child(4)"
