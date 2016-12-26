@@ -21,10 +21,15 @@ let bankScraper = function(config, CurrencyModel){
 				buy: bank.buySelector,
 				sell: bank.sellSelector
 			}])(function(error, currencies){
-				if(error){
+				if(error) {
+					console.error(`error returned from x-ray, when scrapping bank: ${bank.name}\nmsg: ${error}`);
 					reject(error);
 				}
-				else{
+				else {
+					if(currencies === undefined || currencies.length === 0){
+						reject(new Error(`error scrapping bank: ${bank.name}, Empty results returned`));
+					}
+
 					for (let i = currencies.length - 1; i >= 0; i--) {
 						var c = currencies[i];
 
@@ -54,7 +59,7 @@ let bankScraper = function(config, CurrencyModel){
 				}
 			});
 		}).catch(error => {
-			console.error(`error scrapping bank: ${bank.name}\nmsg: ${error}`);
+			console.error(`error thrown when scrapping bank: ${bank.name}\nmsg: ${error}`);
 		});
 
 		promises.push(promise);

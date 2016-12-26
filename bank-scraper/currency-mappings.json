@@ -1,6 +1,7 @@
 {
 	"دولار امريكى" : "USD",
 	"us dollar" : "USD",
+	"us dollars mm" : "USD",
 	"جنيه استرلينى" : "GBP",
 	"british pound": "GBP",
 	"sterling pound" : "GBP",
@@ -36,10 +37,13 @@
 	"uae dirham" : "AED",
 	"u.a.e dirham" : "AED",
 	"arab emirates dirham" : "AED",
+	"emirati dirham" : "AED",
 	"jordanian dinar" : "JOD",
 	"bahrain dinar" : "BHD",
+	"bahraini dinar" : "BHD",
 	"qatari rial" : "QAR",
 	"qatar rial" : "QAR",
 	"oman riyal" : "OMR",
-	"omani rial" : "OMR"
+	"omani rial" : "OMR",
+	"thai baht" : "THB"
 }

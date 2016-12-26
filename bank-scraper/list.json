@@ -39,8 +39,8 @@
 	{
 		"code": "ADIB",
 		"name": "ADIB - مصرف أبوظبي الإسلامي",
-		"url": "https://www.adib.eg/",
-		"scopeSelector": "div.CallUs > table tr:nth-child(n+3)",
+		"url": "https://www.adib.eg/Foreign-Currencies",
+		"scopeSelector": "table.tbl-analyst tr:nth-child(n+2)",
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(2)",
 		"sellSelector": "td:nth-child(3)"
@@ -163,5 +163,14 @@
 		"currencySelector": "div:nth-child(1)",
 		"buySelector": "div:nth-child(2)",
 		"sellSelector": "div:nth-child(3)"
+	},
+	{
+		"code": "UBEG",
+		"name": "TheUBEG - المصرف المتحد",
+		"url": "http://www.theubeg.com/%20exchange%20rates",
+		"scopeSelector": "#fxRateDiv table.rates tr:nth-child(n+2)",
+		"currencySelector": "td:nth-child(2)",
+		"buySelector": "td:nth-child(3)",
+		"sellSelector": "td:nth-child(4)"
 	}
 ]
