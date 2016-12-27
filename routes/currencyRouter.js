@@ -14,8 +14,14 @@ let routes = function(){
 	currencyRouter.route('/currencies/:currencySymbol')
 	.get(function (req, res) {
 		let currencySymbol = req.params.currencySymbol.toUpperCase();
-		let currenciesStore = cache.get('by-currency') || {};
-		res.jsonp(currenciesStore.currencies[currencySymbol] || {});
+		let currenciesStore = cache.get('by-currency');
+
+		if(!currenciesStore || !currenciesStore.currencies || 
+			!currenciesStore.currencies[currencySymbol]) {
+			return res.jsonp({});
+		} else {
+			res.jsonp(currenciesStore.currencies[currencySymbol]);			
+		}
 	});
 
 	currencyRouter.route('/banks')
@@ -26,8 +32,13 @@ let routes = function(){
 	currencyRouter.route('/banks/:bankCode')
 	.get(function (req, res) {
 		let bankCode = req.params.bankCode.toUpperCase();
-		let banksStore = cache.get('by-bank') || {};
-		res.jsonp(banksStore.banks[bankCode] || {});
+		let banksStore = cache.get('by-bank');
+
+		if(!banksStore || !banksStore.banks || !banksStore.banks[bankCode]) {
+			return res.jsonp({});
+		} else {
+			res.jsonp(banksStore.banks[bankCode]);
+		}
 	});
 
 	return currencyRouter;
