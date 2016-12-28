@@ -172,5 +172,15 @@
 		"currencySelector": "td:nth-child(2)",
 		"buySelector": "td:nth-child(3)",
 		"sellSelector": "td:nth-child(4)"
+	},
+	{
+		"code": "CBE",
+		"name": "CBE - البنك المركزي المصري",
+		"url": "http://www.cbe.org.eg/en/EconomicResearch/Statistics/Pages/OfficialRatesListing.aspx",
+		"scopeSelector": "table.table tbody tr",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(2)",
+		"sellSelector": "td:nth-child(3)",
+		"currencyRegex": "[a-zA-Z ]+"
 	}
 ]

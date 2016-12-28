@@ -42,8 +42,11 @@
 	"bahrain dinar" : "BHD",
 	"bahraini dinar" : "BHD",
 	"qatari rial" : "QAR",
+	"qatari riyal" : "QAR",
 	"qatar rial" : "QAR",
 	"oman riyal" : "OMR",
 	"omani rial" : "OMR",
-	"thai baht" : "THB"
+	"omani riyal" : "OMR",
+	"thai baht" : "THB",
+	"chinese yuan" : "CNY"
 }
