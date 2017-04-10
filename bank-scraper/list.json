@@ -131,11 +131,11 @@
 	{
 		"code": "HDB-egy",
 		"name": "HDB-egy - بنك التعمير و الاسكان",
-		"url": "http://www.hdb-egy.com/main.php?page=exhange",
-		"scopeSelector": "table table.Currency-Table tr",
+		"url": "http://web.hdb-egy.com/index.php/currency-exchange",
+		"scopeSelector": "#ccm-block-express-entry-list-table-616 tbody tr",
 		"currencySelector": "td:nth-child(1)",
-		"buySelector": "td:nth-child(3)",
-		"sellSelector": "td:nth-child(5)"
+		"buySelector": "td:nth-child(2)",
+		"sellSelector": "td:nth-child(3)"
 	},
 	{
 		"code": "AAIB",
