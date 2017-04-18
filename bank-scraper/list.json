@@ -73,16 +73,6 @@
 		"sellSelector": "td:nth-child(5)"
 	},
 	{
-		"code": "SAIB",
-		"name": "SAIB - بنك الشركة المصرفية العربية الدولية",
-		"url": "http://www.saib.com.eg/foreign-currencies/",
-		"scopeSelector": "div.about table tr:nth-child(n+2):nth-last-child(n+2)",
-		"currencySelector": "td:nth-child(1)",
-		"buySelector": "td:nth-child(2)",
-		"sellSelector": "td:nth-child(3)",
-		"multiplier": "0.01"
-	},
-	{
 		"code": "Banque-Misr",
 		"name": "Banque Misr - بنك مصر",
 		"url": "http://www.banquemisr.com/en/exchangerates",
@@ -145,15 +135,6 @@
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(2)",
 		"sellSelector": "td:nth-child(3)"
-	},
-	{
-		"code": "Faisal-Bank",
-		"name": "Faisal Bank - بنك فيصل",
-		"url": "http://www.faisalbank.com.eg/FIB/arabic/rate.html",
-		"scopeSelector": "table.Action-Table tr.even",
-		"currencySelector": "td:nth-child(2)",
-		"buySelector": "td:nth-child(3)",
-		"sellSelector": "td:nth-child(4)"
 	},
 	{
 		"code": "EGBANK",
