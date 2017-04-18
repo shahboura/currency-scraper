@@ -7,14 +7,10 @@ Small currency scrapper RESTfull API built on top of node, scrapping Egyptian ba
 # To install
 
 1. [Clone](https://github.com/shahboura/currency-scrapper.git) repository locally
-2. Install [Gulp](https://www.npmjs.com/package/gulp) npm package globally
-    `npm install -g gulp`
-3. Install [PhantomJs](https://www.npmjs.com/package/phantomjs-prebuilt) npm package globally
-    `npm install -g phantomjs-prebuilt`
-4. Navigate to directory and run `npm install`
+2. Navigate to directory and run `npm install`
 
 # To Run
-1. From directory run `gulp`
+1. From directory run `npm run gulp`
 2. All rates ordered by banks: http://localhost:8000/api/banks
 3. All rates for specific bank: http://localhost:8000/api/banks/BANQUE-DU-CAIRE
 4. All rates ordered by currencies: http://localhost:8000/api/currencies
