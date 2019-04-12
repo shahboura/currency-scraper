@@ -164,5 +164,23 @@
 		"buySelector": "td:nth-child(2)",
 		"sellSelector": "td:nth-child(3)",
 		"currencyRegex": "[a-zA-Z ]+"
+	},
+	{
+		"code": "IDB",
+		"name": "IDB - بنك التنمية الصناعية",
+		"url": "https://idb.com.eg/pages/ExchangeRate.aspx",
+		"scopeSelector": "table tr:nth-child(n+3)",
+		"currencySelector": "td:nth-child(1)",
+		"buySelector": "td:nth-child(2)",
+		"sellSelector": "td:nth-child(3)"
+	},
+	{
+		"code": "EBE",
+		"name": "EBE - البنك المصري لتنمية الصادرات",
+		"url": "https://personal.ebebank.com/",
+		"scopeSelector": "#mCSB_1_container",
+		"currencySelector": "div.first-col span:nth-child(n+4)",
+		"buySelector": "div.second-col div.fl span:nth-child(n+2)",
+		"sellSelector": "div.second-col div.flx span:nth-child(n+2)"
 	}
 ]
