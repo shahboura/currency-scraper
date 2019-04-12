@@ -111,7 +111,7 @@
 	{
 		"code": "Blom-Bank",
 		"name": "Blom Bank - بنك بلوم",
-		"url": "http://www.blombankegypt.com/BlomEgypt/Exchange-rates",
+		"url": "http://www.blombankegypt.com/BlomEgypt/Exchange-rates/",
 		"scopeSelector": "div.tableHolder table tr:nth-child(n+3)",
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(5)",
@@ -139,17 +139,18 @@
 	{
 		"code": "EGBANK",
 		"name": "EGBANK - البنك المصري الخليجي",
-		"url": "https://eg-bank.com/ExchangeRates/ExchangeRates/",
-		"scopeSelector": "div.col-xs-12 div.row-wrapper:nth-child(n+2)",
-		"currencySelector": "div:nth-child(1)",
-		"buySelector": "div:nth-child(2)",
-		"sellSelector": "div:nth-child(3)"
+		"url": "https://www.eg-bank.com/En/ExchangeRate/",
+		"scopeSelector": "div.col-xs-12.margin-top-15 div.content_of_currency",
+		"currencySelector": "label.curr",
+		"buySelector": "div:nth-child(4) label.currency",
+		"sellSelector": "div:nth-child(3) label.currency",
+		"buySellRegex": "[-+]?\\d+(\\.\\d+)?"
 	},
 	{
 		"code": "UBEG",
 		"name": "TheUBEG - المصرف المتحد",
-		"url": "http://www.theubeg.com/fxRate",
-		"scopeSelector": "table.rates tr:nth-child(n+2)",
+		"url": "https://www.theubeg.com/ub-services/foreign-currency-exchange",
+		"scopeSelector": "table.exchange-table tbody tr",
 		"currencySelector": "td:nth-child(2)",
 		"buySelector": "td:nth-child(3)",
 		"sellSelector": "td:nth-child(4)"
@@ -157,7 +158,7 @@
 	{
 		"code": "CBE",
 		"name": "CBE - البنك المركزي المصري",
-		"url": "http://www.cbe.org.eg/en/EconomicResearch/Statistics/Pages/OfficialRatesListing.aspx",
+		"url": "https://www.cbe.org.eg/en/EconomicResearch/Statistics/Pages/OfficialRatesListing.aspx",
 		"scopeSelector": "table.table tbody tr",
 		"currencySelector": "td:nth-child(1)",
 		"buySelector": "td:nth-child(2)",

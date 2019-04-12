@@ -33,13 +33,21 @@ let bankScraper = function(config, CurrencyModel){
 					for (let i = currencies.length - 1; i >= 0; i--) {
 						var c = currencies[i];
 
+						// support currency value regex extraction
+						if(bank.buySellRegex) {
+							var regex = new RegExp(bank.buySellRegex);
+
+							c.buy = c.buy.match(regex).shift() || c.buy;
+							c.sell = c.sell.match(regex).shift() || c.sell;
+						}
+
 						// remove zeroed, empty elements
 						if(isNaN(c.buy) || !c.buy || c.buy == 0 || isNaN(c.sell) || !c.sell || c.sell == 0){
 							currencies.splice(i, 1);
 							continue;
 						}
 
-						// support regex value extraction
+						// support currency name regex extraction
 						if(bank.currencyRegex) {
 							let match = c.currency.match(new RegExp(bank.currencyRegex));
 							c.currency = match.shift() || c.currency;
