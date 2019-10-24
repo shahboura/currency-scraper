@@ -9,22 +9,20 @@ cache = require('memory-cache'),
 bankScraper = require('./bank-scraper/scraper');
 
 if(cluster.isMaster){
-	cluster.on('online', (worker) => {
-		console.log('Yay, the worker responded after it was forked');
-	});
+	console.log(`Master ${process.pid} is running`);
 
 	// Fork workers.
 	for (var i = numCPUs - 1; i >= 0; i--) {
 		cluster.fork();
 	}
 
-	cluster.on('exit', (worker, code, signal) => {
-		console.log(`worker ${worker.process.pid} died with signal/code ${signal || code}, forking...`);
+	cluster.on('exit', (code, signal) => {
+		console.log(`worker ${process.pid} died with signal/code ${signal || code}, forking...`);
 		cluster.fork();
 	});
 
 	// Run only once, no need to scrap in parallel clusters
-	bankScraper(config).then(results => {
+	bankScraper(config).then(() => {
 		console.log('currency rates updated.');
 	});
 } else {
@@ -47,6 +45,6 @@ if(cluster.isMaster){
 
 	// run server
 	app.listen(port, function(){
-		console.log('Running on PORT: ' + port);
+		console.log(`Worker ${process.pid} started on port: ${port}`);
 	});
 }
