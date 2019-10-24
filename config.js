@@ -6,7 +6,7 @@ let config = {};
 
 config.banks = banks;
 config.currencyMappings = currencyMappings;
-config.port = process.env.PORT || 8000;
+config.port = process.env.PORT || 8080;
 config.refreshInterval = 900000;
 config.timeout = 90000;
 
